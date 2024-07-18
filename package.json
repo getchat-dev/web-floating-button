@@ -7,8 +7,7 @@
     "build": "vite build --emptyOutDir",
     "build-browser": "vite build --emptyOutDir --config vite.browser.config.js",
     "build:dev": "vite build --emptyOutDir --watch --mode developmen",
-    "preview": "vite preview",
-    "postinstall": "cp .env.example .env && vite build && vite build-browser"
+    "preview": "vite preview"
   },
   "main": "dist/index.js",
   "browser": "dist/browser.js",

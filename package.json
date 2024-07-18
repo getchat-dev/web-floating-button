@@ -1,0 +1,27 @@
+{
+  "name": "@getchat-dev/web-button",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "build-browser": "vite build --emptyOutDir --config vite.browser.config.js",
+    "build:dev": "vite build --emptyOutDir --watch --mode developmen",
+    "preview": "vite preview",
+    "postinstall": "cp .env.example .env && vite build && vite build-browser"
+  },
+  "main": "dist/index.js",
+  "browser": "dist/browser.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getchat-dev/web-button.git"
+  },
+  "devDependencies": {
+    "@rollup/plugin-replace": "^5.0.7",
+    "lightningcss": "^1.25.1",
+    "vite": "^5.3.4",
+    "vite-plugin-css-injected-by-js": "^3.5.1"
+  },
+  "license": "MIT"
+}

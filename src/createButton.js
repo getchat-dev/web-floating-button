@@ -12,10 +12,10 @@ export default async function ({
     className,
     showUnread = false,
     autoload = false,
-    autostart = false,
-    autostartDelay = 5,
     bgcolor,
     bdradius,
+    autoopen = false,
+    autoopenDelay = 5,
     closeOnEscape,
     color,
     insertButtonTo,
@@ -73,8 +73,8 @@ export default async function ({
         url: unescapeHTML(uri),
         button,
         autoload,
-        autostart,
-        autostartDelay,
+        autoopen,
+        autoopenDelay,
         closeOnEscape,
 
         onBeforeEmbedChat: function createChatNode() {

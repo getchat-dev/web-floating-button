@@ -37,12 +37,12 @@ export default class Chat {
         this.#onBeforeEmbedChat = onBeforeEmbedChat;
 
         let onload;
-        if (autostart) {
-            if (autostart !== 'once' || !window.localStorage.getItem(`getchat_opened`)) {
+        if (autoopen) {
+            if (autoopen !== 'once' || !window.localStorage.getItem(`getchat_opened`)) {
                 onload =
-                    !isNaN(autostartDelay)
+                    !isNaN(autoopenDelay)
                         ? () => {
-                            setTimeout(this.open, autostartDelay * 1000);
+                            setTimeout(this.open, autoopenDelay * 1000);
                         }
                         : this.open
                     ;

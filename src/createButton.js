@@ -136,6 +136,8 @@ export default async function ({
         }
     });
 
+    button.setChatInstance(chat);
+
     chat.addEventListener('getchat.close', function (data) {
         chat.close();
     });

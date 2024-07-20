@@ -1,4 +1,5 @@
 import { addClassName, getAttr, removeClassName, toDecimal, dispatchEvent } from "@/utils";
+import Chat from "@/Chat";
 
 const transformAttributeToCss = function (node, attrbite, type) {
     let value = getAttr(node, attrbite, type);
@@ -12,6 +13,7 @@ const supportedAttributes = ['bgcolor', 'color', 'bdradius', 'bdwidth', 'bdcolor
 
 export default class GetchatButton extends HTMLElement {
 
+    #chatInstance;
     #rendered = false;
     #observer;
 
@@ -52,6 +54,16 @@ export default class GetchatButton extends HTMLElement {
 
     disconnectedCallback() {
         this.#observer.disconnect();
+    }
+
+    setChatInstance(chatInstance) {
+        if (!this.#chatInstance && chatInstance instanceof Chat) {
+            this.#chatInstance = chatInstance;
+        }
+    }
+
+    getChatInstance() {
+        return this.#chatInstance;
     }
 
     setState(state) {

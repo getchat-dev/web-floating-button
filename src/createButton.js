@@ -1,6 +1,6 @@
 import { uuid, addClassName, unescapeHTML, buildQueryString, asyncEmbedIframe, isPlainObject, scalarToBoolean, parseClassNames } from '@/utils'
 
-import '@/GetchatButton';
+import GetchatButton from '@/GetchatButton';
 
 import Chat from '@/Chat';
 
@@ -9,11 +9,10 @@ import styles from '@/outer.module.css';
 import onMessage from '@/onMessage'
 
 export default async function ({
+    uri,
     className,
     showUnread = false,
     autoload = false,
-    bgcolor,
-    bdradius,
     autoopen = false,
     autoopenDelay = 5,
     closeOnEscape,
@@ -24,8 +23,7 @@ export default async function ({
     chatParent,
     chatStyle,
     chatNode,
-    node,
-    uri,
+    ...options
 }) {
     const id = (__JS_GLOBAL_SCOPE__).toLowerCase() + uuid();
 
@@ -57,14 +55,12 @@ export default async function ({
         Object.assign(button.style, buttonStyle);
     }
 
-    if (bgcolor) {
-        button.setAttribute('bgcolor', bgcolor);
-    }
-    if (color) {
-        button.setAttribute('color', color);
-    }
-    if (bdradius) {
-        button.setAttribute('bdradius', bdradius);
+    if (GetchatButton.supportedAttributes?.length) {
+        for (let attr of GetchatButton.supportedAttributes) {
+            if (options[attr]) {
+                button.setAttribute('data-'+attr, options[attr]);
+            }
+        }
     }
 
     insertButtonTo.appendChild(button);

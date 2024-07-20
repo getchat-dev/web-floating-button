@@ -1,17 +1,16 @@
 import { addClassName, getAttr, removeClassName, toDecimal, dispatchEvent } from "@/utils";
 
-const transformAttributeToCss = function(node, attrbite, type) {
+const transformAttributeToCss = function (node, attrbite, type) {
     let value = getAttr(node, attrbite, type);
 
     if (value) {
-        node.style.setProperty(`--${attrbite}`, value);
+        node.style.setProperty(`--${attrbite.replace('data-', '')}`, value);
     }
-
 }
 
-const supportedAttributes = ['bgcolor', 'color', 'bdradius', 'bdwidth', 'bdcolor'];
+const supportedAttributes = ['bgcolor', 'color', 'bdradius', 'bdwidth', 'bdcolor', 'badgebg', 'badgecolor'];
 
-class GetchatButton extends HTMLElement {
+export default class GetchatButton extends HTMLElement {
 
     #rendered = false;
     #observer;
@@ -26,14 +25,22 @@ class GetchatButton extends HTMLElement {
         this.render();
 
         supportedAttributes.forEach(attr => {
-            transformAttributeToCss(this, attr, 'string');
+            if (this.hasAttribute('data-' + attr)) {
+                transformAttributeToCss(this, 'data-'+attr, 'string');
+            }
         });
 
         // add listeners to listen changing attrivutes
         this.#observer = new MutationObserver((mutationsList) => {
             for (let mutation of mutationsList) {
                 if (mutation.type === 'attributes') {
-                    if (supportedAttributes.includes(mutation.attributeName)) {
+                    // check if it is data attribute remove data-
+                    let attrName = mutation.attributeName;
+                    if (attrName.startsWith('data-')) {
+                        attrName = attrName.replace('data-', '');
+                    }
+
+                    if (supportedAttributes.includes(attrName.replace('data-', ''))) {
                         transformAttributeToCss(this, mutation.attributeName, 'string');
                     }
                 }
@@ -167,9 +174,9 @@ class GetchatButton extends HTMLElement {
                 min-width: 16px;
                 height: 16px;
                 line-height: 16px;
-                background: #F16843;
+                background: var(--badgebg, #F16843);
                 border-radius: 8px;
-                color: #FFF;
+                color: var(--badgecolor, #FFF);
                 opacity: 0;
                 transition: opacity .15s ease, transform .15s ease;
             `,
@@ -211,5 +218,7 @@ class GetchatButton extends HTMLElement {
         this.#rendered = true;
     }
 }
+
+GetchatButton.supportedAttributes = supportedAttributes;
 
 customElements.define('getchat-button', GetchatButton);

@@ -1,6 +1,7 @@
 import { cssTransitionBasedAnimate, iframeRPC } from '@/utils.js'
 import embedChat from '@/embedChat';
 import onMessage from '@/onMessage';
+import escapeHandler from '@/escapeHandler';
 
 import styles from '@/outer.module.css';
 
@@ -11,6 +12,8 @@ export default class Chat {
     #chatIframe;
     #chatUrl;
 
+    #closeOnEscape = true;
+
     #isChatLoaded = -1;
     #isChatOpened = false;
     #animationState = false;
@@ -18,14 +21,11 @@ export default class Chat {
     #onBeforeEmbedChat;
     #onChatLoadedCallback;
 
-    #onCloseChat;
-
-    #loadingPromise;
-
     #readyPromise;
 
-    constructor({ id, url, button, autoload, autostart = false, autostartDelay, onBeforeEmbedChat, onChatLoaded, onCloseChat }) {
+    constructor({ id, url, button, closeOnEscape = true, autoload, autoopen = false, autoopenDelay, onBeforeEmbedChat, onChatLoaded }) {
         this.#chatUrl = url;
+        this.#closeOnEscape = closeOnEscape;
 
         if (button instanceof Element) {
             this.#button = button;
@@ -152,7 +152,7 @@ export default class Chat {
         });
     }
 
-    open() {
+    open = () => {
         return new Promise(async (resolve, reject) => {
 
             if (this.#isChatLoaded < 1) {
@@ -195,15 +195,12 @@ export default class Chat {
 
                 this.#animationState = false;
                 this.#isChatOpened = true;
-                
-                this.#chatIframe.contentWindow.postMessage(
-                    JSON.stringify({
-                        type: 'getchat.chat.input.focus'
-                    }),
-                    '*'
-                );
 
-                // escapeHandler.bind(closeChat.bind(null, id, false));
+                iframeRPC(this.#chatIframe, 'getchat.chat.input.focus');
+
+                if (this.#closeOnEscape) {
+                    escapeHandler.bind(this.close);
+                }
             }
             catch(e) {
                 reject(e);
@@ -213,12 +210,16 @@ export default class Chat {
         });
     }
 
-    close() {
+    close = () => {
         return new Promise(async (resolve, reject) => {
 
             if (!this.#isChatOpened && !this.#animationState) {
                 resolve();
                 return;
+            }
+
+            if (this.#closeOnEscape) {
+                escapeHandler.unbind(this.close);
             }
 
             try {

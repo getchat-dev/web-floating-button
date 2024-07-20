@@ -1,5 +1,4 @@
 import { uuid, addClassName, unescapeHTML, buildQueryString, asyncEmbedIframe, isPlainObject, scalarToBoolean, parseClassNames } from '@/utils'
-import escapeHandler from '@/escapeHandler';
 
 import '@/GetchatButton';
 
@@ -17,6 +16,7 @@ export default async function ({
     autostartDelay = 5,
     bgcolor,
     bdradius,
+    closeOnEscape,
     color,
     insertButtonTo,
     buttonStyle,
@@ -75,6 +75,7 @@ export default async function ({
         autoload,
         autostart,
         autostartDelay,
+        closeOnEscape,
 
         onBeforeEmbedChat: function createChatNode() {
             let doesElementOnPage = true;

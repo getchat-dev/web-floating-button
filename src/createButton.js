@@ -136,7 +136,7 @@ export default async function ({
         }
     });
 
-    chat.addEventListener('GetChat.Close', function (data) {
+    chat.addEventListener('getchat.close', function (data) {
         chat.close();
     });
 

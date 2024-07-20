@@ -1,4 +1,4 @@
-import onMessage from './onMessage';
+import onMessage from '@/onMessage';
 
 export default function (rootElement, src, style, onload, onclose) {
     if(!(rootElement instanceof Element)) {
@@ -38,7 +38,7 @@ export default function (rootElement, src, style, onload, onclose) {
         }
     //}
 
-    onMessage('GetChat.Loaded', function () {
+    onMessage('getchat.loaded', function () {
         restorePrevState();
         if(typeof onload === 'function') {
             onload(frame);

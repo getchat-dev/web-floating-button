@@ -8,6 +8,31 @@ import styles from '@/outer.module.css';
 
 import onMessage from '@/onMessage'
 
+/**
+ * Options for creating a chat button.
+ * 
+ * @typedef {Object} CreateButtonOptions
+ * @property {string} [uri] - The URI for the chat service.
+ * @property {string} [className] - The class name to apply to the button.
+ * @property {boolean | 'messages' | 'chats'} [showUnread] - Whether to show unread messages or chats count.
+ * @property {boolean} [autoload=false] - Whether to autoload the chat. Default is false.
+ * @property {boolean} [autoopen=false] - Whether to open the chat widget automatically. Default is false.
+ * @property {number} [autoopenDelay=5000] - Delay in milliseconds before auto open. Default is 5000ms.
+ * @property {boolean} [closeOnEscape=true] - Whether to close the chat on escape press.
+ * @property {string} [bgcolor] - Background color of the button.
+ * @property {string} [bdradius] - Border radius of the button.
+ * @property {string} [bdwidth] - Border width of the button.
+ * @property {string} [bdcolor] - Border color of the button.
+ * @property {string} [badgecolor] - Border color of the button.
+ * @property {string} [badgebg] - Border color of the button.
+ * @property {string} [color] - Text color of the button.
+ * @property {HTMLElement|function(): HTMLElement} [insertButtonTo] - The HTML element to insert the button into.
+ * @property {Partial<CSSStyleDeclaration>} [buttonStyle] - Custom styles to apply to the button.
+ * @property {string} [chatClassName] - Class name to apply to the chat window.
+ * @property {HTMLElement|null} [chatParent] - The parent HTML element of the chat window.
+ * @property {Partial<CSSStyleDeclaration>} [chatStyle] - Custom styles to apply to the chat window.
+ * @property {HTMLElement|null} [chatNode] - The HTML element representing the chat node.
+ */
 export default async function ({
     uri,
     className,

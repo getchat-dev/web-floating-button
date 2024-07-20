@@ -23,10 +23,9 @@ export default defineConfig(async({ command, mode }) => {
             lib: {
                 entry: resolve(__dirname, 'src/index.js'),
                 name: 'GetChat',
-                fileName: 'index',
-                formats: ['es', 'cjs', 'umd', 'iife'],
+                formats: ['es'],
             },
-            assetsInlineLimit: 0
+            assetsInlineLimit: 0,
         },
         define: {
             'process.env.SERVER_NAME': JSON.stringify(env.SERVER_NAME),

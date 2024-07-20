@@ -24,7 +24,7 @@ export default defineConfig(async({ command, mode }) => {
                 entry: resolve(__dirname, 'src/browser.js'),
                 name: 'GetChat',
                 fileName: 'browser',
-                formats: ['es', 'cjs', 'umd', 'iife'],
+                formats: ['es', 'umd', 'iife'],
             },
             assetsInlineLimit: 0
         },

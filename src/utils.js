@@ -151,6 +151,21 @@ const toPercent = function (str, defaultVal = null) {
     return defaultVal;
 }
 
+const toUrl = function (str, defaultVal = null) {
+    if (typeof (str) === 'string' && str.length === 0) {
+        try {
+            URL.parse(str);
+
+            return str;
+        }
+        catch(e) {
+            return defaultVal;
+        }
+    }
+
+    return defaultVal;
+}
+
 const doCast = function (fnCast, val) {
     if (val === null || val === undefined) {
         return null;
@@ -159,12 +174,32 @@ const doCast = function (fnCast, val) {
     return fnCast(val);
 }
 
+const compartmentalizeCssValue = function (str, defaultVal = null) {
+    if (typeof (str) === 'string' && str.length > 0) {
+        // try to find numberic value and after that unit
+        let match = str.match(/^((\d+)(\.(\d)+)?)(.*)$/);
+        if (match) {
+            return {
+                value: parseFloat(match[1]),
+                integer: parseInt(match[2], 10),
+                fraction: parseInt(match[4], 10),
+                unit: match[5]
+            };
+        }
+        else {
+            return str;
+        }
+    }
+
+    return defaultVal;
+}
+
 const getAttr = function (el, name) {
     let fnCast = String;
     let defaultVal = null;
 
     if (arguments.length > 2) {
-        const supportedTypes = {'string': String, 'decimal': toDecimal, 'number': Number, 'boolean': scalarToBoolean, 'bool': scalarToBoolean, 'color': toColor};
+        const supportedTypes = {'string': String, 'decimal': toDecimal, 'number': Number, 'boolean': scalarToBoolean, 'bool': scalarToBoolean, 'color': toColor, 'url': toUrl};
         if (! supportedTypes.hasOwnProperty(arguments[2])) {
             throw new Error('3rd arg must be one of the following types: '+Object.keys(supportedTypes).join(', '));
         }
@@ -274,7 +309,7 @@ const transitionEnd = (function() {
 
 const iframeRPC = function (iframe, event, data = null) {
 
-    const payload = {
+    let payload = {
         rpcId: uuid(),
         type: event
     };
@@ -406,7 +441,7 @@ const callbackFuncToAsync = function (fn, resolveCallback, rejectCallback) {
 
 const ANIMATION_FALLBACK_TIMEOUT = 1000;
 
-const cssTransitionBasedAnimate = function(node, beforeClass, animationClass, callback) {
+const cssTransitionBasedAnimate = function(node, beforeClass, animationClass) {
 
     return new Promise((resolve, reject) => {
         const displayValue = node.style.display === 'none' ? 'block' : 'none';
@@ -459,6 +494,7 @@ export {
     scalarToBoolean,
     toDecimal,
     transitionEnd,
+    compartmentalizeCssValue,
     sanitizeOnMessageEvent,
     parseClassNames,
     embedIframe,

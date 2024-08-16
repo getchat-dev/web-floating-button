@@ -1,4 +1,4 @@
-import { uuid, addClassName, unescapeHTML, buildQueryString, asyncEmbedIframe, isPlainObject, scalarToBoolean, parseClassNames } from '@/utils'
+import { uuid, addClassName, unescapeHTML, compartmentalizeCssValue, buildQueryString, asyncEmbedIframe, isPlainObject, scalarToBoolean, parseClassNames } from '@/utils'
 
 import GetchatButton from '@/GetchatButton';
 
@@ -137,26 +137,44 @@ export default async function ({
             window.localStorage.setItem(`getchat_opened`, '1');
 
             const wh = window.innerHeight;
-            let h = '200px';
 
             const chatNode = chat.getChatNode();
             if (chatNode) {
-                const { display, visibility, position } = getComputedStyle(chatNode);
+                let { display, visibility, position, top, right, bottom, left } = getComputedStyle(chatNode);
+
+                const newStyle = {
+                    display, visibility
+                }
 
                 Object.assign(chatNode.style, { display: 'block', visibility: 'hidden' });
 
-                // if our chat is inside the element with a positional fix.
-                // we need to calculate the height intelligently
-                if (position === 'fixed') {
-                    h = Math.min(wh - (wh - chatNode.offsetTop) - 20, 500);
-                }
-                else {
-                    h = Math.min(wh - 20, 500);
-                }
+                requestAnimationFrame(() => {
+                    // if our chat is inside the element with a positional fix.
+                    // we need to calculate the height intelligently
+                    if (position === 'fixed') {
 
-                chatNode.style.height = `${h}px`;
+                        bottom = compartmentalizeCssValue(bottom, 'auto');
+                        top = compartmentalizeCssValue(top, 'auto');
 
-                Object.assign(chatNode.style, { display, visibility });
+                        if (bottom !== 'auto' && bottom?.value) {
+                            if (top === 'auto') {
+                                newStyle.top = bottom.value + bottom.unit;
+                                newStyle.height = 'auto';
+                            }
+                        }
+                        else if(top !== 'auto' && top.value) {
+                            if (bottom === 'auto') {
+                                newStyle.bottom = top.value + top.unit;
+                                newStyle.height = 'auto';
+                            }
+                        }
+                    }
+                    else {
+                        newStyle.height = `${Math.min(wh - 20, 500)}px`;
+                    }
+
+                    Object.assign(chatNode.style, newStyle);
+                });
             }
         }
     });

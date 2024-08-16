@@ -79,6 +79,13 @@ export default class Chat {
             });
 
             this.#readyPromise = { promise, resolve, reject };
+
+            if (this.#button) {
+                promise.then(async () => {
+                    const unreads = await this.rpc('getchat.messenger.getUnreads');
+                    this.#button.setBadge(unreads?.total?.messages ?? 0);
+                });
+            }
         }
     }
 
@@ -178,20 +185,10 @@ export default class Chat {
                 await cssTransitionBasedAnimate(
                     this.#chatNode,
                     styles['chat-animation-preopen'],
-                    styles['chat-animation-open'],
-                    () => {
-                        // Verkhoturova found a bug in iE11:
-                        // some posts went under the header and footer
-                        //setTimeout(() => {
-                        this.#chatIframe.contentWindow.postMessage(
-                            JSON.stringify({
-                                type: 'getchat.messenger.repaint'
-                            }),
-                            '*'
-                        );
-                        //}, 200);
-                    },
+                    styles['chat-animation-open']
                 );
+
+                iframeRPC(this.#chatIframe, 'getchat.messenger.repaint');
 
                 this.#animationState = false;
                 this.#isChatOpened = true;

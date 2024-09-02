@@ -40,6 +40,22 @@ export interface ChatOptions {
      * Callback function to call when the chat is loaded.
      */
     onChatLoaded?: () => void;
+    /**
+     * Callback function to call before opening the chat.
+     */
+    onBeforeOpenChat?: () => Promise<void> | void;
+    /**
+     * Callback function to call after opening the chat.
+     */
+    onAfterOpenChat?: () => Promise<void> | void;;
+    /**
+     * Callback function to call before closing the chat.
+     */
+    onBeforeCloseChat?: () => Promise<void> | void;;
+    /**
+     * Callback function to call after closing the chat.
+     */
+    onAfterCloseChat?: () => Promise<void> | void;;
 }
 
 export declare class Chat {

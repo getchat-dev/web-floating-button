@@ -177,27 +177,28 @@ messenger.addEventListener('getchat.chat.message.new', function () {
 
 | Option            | Type                                                | Description                                      | Default      |
 |-------------------|-----------------------------------------------------|--------------------------------------------------|--------------|
-| `uri`*            | `string`                                            | The URI for the chat service.                    | `undefined`  |
-| `insertButtonTo`* | `HTMLElement \| (() => HTMLElement) \| null`        | The HTML element to insert the button into.      | `undefined`  |
-| `className`       | `string`                                            | The class name to apply to the button.           | `undefined`  |
-| `showUnread`      | `boolean \| 'messages' \| 'chats'`                  | Whether to show unread messages count.           | `undefined`  |
-| `autoload`        | `boolean`                                           | Whether to autoload the chat.                    | `false`      |
-| `autoopen`        | `boolean`                                           | Whether to open the chat widget automatically.   | `false`      |
-| `autoopenDelay`   | `number`                                            | Delay in milliseconds before auto open.          | `5000`       |
-| `closeOnEscape`   | `boolean`                                           | Whether to close the chat on escape press.       | `true`       |
-| `bgcolor`         | `string`                                            | Background color of the button.                  | `undefined`  |
-| `bdradius`        | `string`                                            | Border radius of the button.                     | `undefined`  |
-| `bdwidth`         | `string`                                            | Border width of the button.                      | `undefined`  |
-| `bdcolor`         | `string`                                            | Border color of the button.                      | `undefined`  |
-| `badgebg`          | `string`                                            | Background color of badge on the button.         | `undefined`  |
-| `badgecolor`       | `string`                                            | Color of badge on the button.                    | `undefined`  |
-| `color`           | `string`                                            | Text color of the button.                        | `undefined`  |
-| `buttonStyle`     | `Partial<CSSStyleDeclaration>`                      | Custom styles to apply to the button.            | `undefined`  |
-| `chatClassName`   | `string`                                            | Class name to apply to the chat window.          | `undefined`  |
-| `chatParent`      | `HTMLElement \| null`                               | The parent HTML element of the chat window.      | `undefined`  |
-| `chatStyle`       | `Partial<CSSStyleDeclaration>`                      | Custom styles to apply to the chat window.       | `undefined`  |
-| `chatNode`        | `HTMLElement \| null`                               | The HTML element representing the chat node.     | `undefined`  |
-| `node`            | `HTMLElement \| null`                               | The HTML element representing the node.          | `undefined`  |
+| `uri`*               | `string`                                         | The URI for the chat service.                    | `undefined`  |
+| `insertButtonTo`*    | `HTMLElement \| (() => HTMLElement) \| null`     | The HTML element to insert the button into.      | `undefined`  |
+| `className`          | `string`                                         | The class name to apply to the button.           | `undefined`  |
+| `showUnread`         | `boolean \| 'messages' \| 'chats'`               | Whether to show unread messages count.           | `undefined`  |
+| `autoload`           | `boolean`                                        | Whether to autoload the chat.                    | `false`      |
+| `autoopen`           | `boolean`                                        | Whether to open the chat widget automatically.   | `false`      |
+| `autoopenDelay`      | `number`                                         | Delay in milliseconds before auto open.          | `5000`       |
+| `closeOnEscape`      | `boolean`                                        | Whether to close the chat on escape press.       | `true`       |
+| `mobileModeMaxWidth` | `number`                                         | The maximum width of the mobile mode.            | `460`        |
+| `bgcolor`            | `string`                                         | Background color of the button.                  | `undefined`  |
+| `bdradius`           | `string`                                         | Border radius of the button.                     | `undefined`  |
+| `bdwidth`            | `string`                                         | Border width of the button.                      | `undefined`  |
+| `bdcolor`            | `string`                                         | Border color of the button.                      | `undefined`  |
+| `badgebg`            | `string`                                         | Background color of badge on the button.         | `undefined`  |
+| `badgecolor`         | `string`                                         | Color of badge on the button.                    | `undefined`  |
+| `color`              | `string`                                         | Text color of the button.                        | `undefined`  |
+| `buttonStyle`        | `Partial<CSSStyleDeclaration>`                   | Custom styles to apply to the button.            | `undefined`  |
+| `chatClassName`      | `string`                                         | Class name to apply to the chat window.          | `undefined`  |
+| `chatParent`         | `HTMLElement \| null`                            | The parent HTML element of the chat window.      | `undefined`  |
+| `chatStyle`          | `Partial<CSSStyleDeclaration>`                   | Custom styles to apply to the chat window.       | `undefined`  |
+| `chatNode`           | `HTMLElement \| null`                            | The HTML element representing the chat node.     | `undefined`  |
+| `node`               | `HTMLElement \| null`                            | The HTML element representing the node.          | `undefined`  |
 
 ### ChatOptions Interface
 
@@ -212,6 +213,10 @@ messenger.addEventListener('getchat.chat.message.new', function () {
 | `closeOnEscape`     | `boolean`                       | `true`  | Whether to close the chat on escape press.                   |
 | `onBeforeEmbedChat` | `() => void`                    | N/A     | Callback before the chat is embedded on the page.            |
 | `onChatLoaded`      | `() => void`                    | N/A     | Callback when the chat is fully loaded.                      |
+| `onBeforeOpen`      | `() => void`                    | N/A     | Callback before the chat is opened.                          |
+| `onAfterOpenChat`   | `() => void`                    | N/A     | Callback after the chat is opened.                           |
+| `onBeforeClose`     | `() => void`                    | N/A     | Callback before the chat is closed.                          |
+| `onAfterCloseChat`  | `() => void`                    | N/A     | Callback after the chat is closed.                           |
 
 ### Chat Class
 
@@ -227,4 +232,4 @@ messenger.addEventListener('getchat.chat.message.new', function () {
 | `getButton`         | N/A                                                | `HTMLElement \| null`       | Returns the chat trigger button element, if any.              |
 | `getChatNode`       | N/A                                                | `HTMLElement \| null`       | Retrieves the chat container element.                         |
 | `getChatIframeNode` | N/A                                                | `HTMLElement \| null`       | Retrieves the chat's iframe element, if using an iframe.      |
-| `rpc`               | `method: string, params: any[], timeout?: number` | `Promise<any>`              | Performs a remote procedure call to the chat service.         |
+| `rpc`               | `method: string, params: any[], timeout?: number`  | `Promise<any>`              | Performs a remote procedure call to the chat service.         |

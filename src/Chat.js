@@ -21,9 +21,14 @@ export default class Chat {
     #onBeforeEmbedChat;
     #onChatLoadedCallback;
 
+    #onBeforeOpen;
+    #onAfterOpen;
+    #onBeforeClose;
+    #onAfterClose;
+
     #readyPromise;
 
-    constructor({ id, url, button, closeOnEscape = true, autoload, autoopen = false, autoopenDelay, onBeforeEmbedChat, onChatLoaded }) {
+    constructor({ id, url, button, closeOnEscape = true, autoload, autoopen = false, autoopenDelay, onBeforeEmbedChat, onChatLoaded, onBeforeOpen, onAfterOpen, onBeforeClose, onAfterClose }) {
         this.#chatUrl = url;
         this.#closeOnEscape = closeOnEscape;
 
@@ -64,6 +69,11 @@ export default class Chat {
         if (autoload) {
             this.load(false);
         }
+
+        this.#onBeforeOpen = onBeforeOpen;
+        this.#onAfterOpen = onAfterOpen;
+        this.#onBeforeClose = onBeforeClose;
+        this.#onAfterClose = onAfterClose;
 
         if (this.#button) {
             this.#button.addEventListener('click', () => {
@@ -170,9 +180,13 @@ export default class Chat {
                 resolve();
                 return;
             }
-            
+
             try {
                 this.#animationState = true;
+
+                if (typeof (this.#onBeforeOpen) === 'function') {
+                    await this.#onBeforeOpen();
+                }
 
                 if (this.#button) {
                     await cssTransitionBasedAnimate(
@@ -187,6 +201,10 @@ export default class Chat {
                     styles['chat-animation-preopen'],
                     styles['chat-animation-open']
                 );
+
+                if (typeof (this.#onAfterOpen) === 'function') {
+                    await this.#onAfterOpen();
+                }
 
                 iframeRPC(this.#chatIframe, 'getchat.messenger.repaint');
 
@@ -222,6 +240,10 @@ export default class Chat {
             try {
                 this.#animationState = true;
 
+                if (typeof (this.#onBeforeClose) === 'function') {
+                    await this.#onBeforeClose();
+                }
+
                 await cssTransitionBasedAnimate(
                     this.#chatNode,
                     styles['chat-animation-preclose'],
@@ -238,6 +260,10 @@ export default class Chat {
 
                 this.#animationState = true;
                 this.#isChatOpened = false;
+
+                if (typeof (this.#onAfterClose) === 'function') {
+                    await this.#onAfterClose();
+                }
 
                 resolve();
             }

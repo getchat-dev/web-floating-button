@@ -19,6 +19,7 @@ import onMessage from '@/onMessage'
  * @property {boolean} [autoopen=false] - Whether to open the chat widget automatically. Default is false.
  * @property {number} [autoopenDelay=5000] - Delay in milliseconds before auto open. Default is 5000ms.
  * @property {boolean} [closeOnEscape=true] - Whether to close the chat on escape press.
+ * @property {number} [mobileModeMaxWidth=460] - The maximum width of window when chat is in mobile mode.
  * @property {string} [bgcolor] - Background color of the button.
  * @property {string} [bdradius] - Border radius of the button.
  * @property {string} [bdwidth] - Border width of the button.
@@ -42,6 +43,7 @@ export default async function ({
     autoopenDelay = 5,
     closeOnEscape,
     color,
+    mobileModeMaxWidth = 460,
     insertButtonTo,
     buttonStyle,
     chatClassName,
@@ -89,6 +91,10 @@ export default async function ({
     }
 
     insertButtonTo.appendChild(button);
+
+    let beforeOpenTopScroll;
+    let beforeOpenBodyPositionProperty;
+    let thingsForChatMode = false;
 
     const chat = new Chat({
         url: unescapeHTML(uri),
@@ -176,7 +182,39 @@ export default async function ({
                     Object.assign(chatNode.style, newStyle);
                 });
             }
-        }
+        },
+
+        onBeforeOpen: function () {
+            if (window.innerWidth <= mobileModeMaxWidth) {
+                beforeOpenTopScroll = window.scrollY || window.pageYOffset;
+                beforeOpenBodyPositionProperty = getComputedStyle(document.body).position;
+                thingsForChatMode = true;
+            }
+        },
+
+        onAfterOpen: function () {
+
+            if (thingsForChatMode) {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                document.body.style.position = 'fixed';
+            }
+        },
+
+        onBeforeClose: function () {
+
+            if (thingsForChatMode) {
+
+                if (beforeOpenBodyPositionProperty) {
+                    document.body.style.position = beforeOpenBodyPositionProperty
+                }
+
+                if (beforeOpenTopScroll) {
+                    window.scrollTo({ top: beforeOpenTopScroll, left: 0, behavior: 'instant' });
+                }
+            }
+
+            thingsForChatMode = false;
+        },
     });
 
     button.setChatInstance(chat);

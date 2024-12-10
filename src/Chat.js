@@ -1,4 +1,4 @@
-import { cssTransitionBasedAnimate, iframeRPC } from '@/utils.js'
+import { cssTransitionBasedAnimate, removeClassName, iframeRPC } from '@/utils.js'
 import embedChat from '@/embedChat';
 import onMessage from '@/onMessage';
 import escapeHandler from '@/escapeHandler';
@@ -199,7 +199,7 @@ export default class Chat {
                 await cssTransitionBasedAnimate(
                     this.#chatNode,
                     styles['chat-animation-preopen'],
-                    styles['chat-animation-open']
+                    styles['chat-animation-opened']
                 );
 
                 if (typeof (this.#onAfterOpen) === 'function') {
@@ -246,9 +246,12 @@ export default class Chat {
 
                 await cssTransitionBasedAnimate(
                     this.#chatNode,
-                    styles['chat-animation-preclose'],
-                    styles['chat-animation-close'],
+                    styles['chat-animation-opened'],
+                    styles['chat-animation-close']
                 );
+
+                removeClassName(this.#chatNode, styles['chat-animation-close']);
+                removeClassName(this.#button, styles['button-animation-close']);
 
                 if (this.#button) {
                     await cssTransitionBasedAnimate(
@@ -257,6 +260,8 @@ export default class Chat {
                         styles['button-animation-open'],
                     );
                 }
+
+                removeClassName(this.#button, styles['button-animation-open']);
 
                 this.#animationState = true;
                 this.#isChatOpened = false;

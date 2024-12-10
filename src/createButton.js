@@ -113,15 +113,6 @@ export default async function ({
 
             chatNode.className = styles['chat']
 
-            if (isPlainObject(chatStyle)) {
-                chatStyle = Object.assign({}, chatStyle, { display: 'none' });
-            }
-            else {
-                chatStyle = { display: 'none' }
-            }
-
-            Object.assign(chatNode.style, chatStyle);
-
             if (chatClassName) {
                 addClassName(chatNode, parseClassNames(chatClassName));
             }
@@ -146,13 +137,9 @@ export default async function ({
 
             const chatNode = chat.getChatNode();
             if (chatNode) {
-                let { display, visibility, position, top, right, bottom, left } = getComputedStyle(chatNode);
+                let { position, top, bottom } = getComputedStyle(chatNode);
 
-                const newStyle = {
-                    display, visibility
-                }
-
-                Object.assign(chatNode.style, { display: 'block', visibility: 'hidden' });
+                const newStyle = {}
 
                 requestAnimationFrame(() => {
                     // if our chat is inside the element with a positional fix.

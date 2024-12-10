@@ -17,8 +17,17 @@
     border-radius: 50%;
     box-shadow: 0 1px 6px rgba(0,0,0,.06),0 2px 32px rgba(0,0,0,.16);
     transform: scale(1);
-    transition: opacity .6s ease, transform .6s ease;
+    transition: opacity .3s ease, transform .3s ease;
     opacity: 1;
+
+    &:active {
+        transition: none;
+        transform: scale(.95);
+    }
+
+    @media(prefers-reduced-motion) {
+        transition: none !important;
+    }
 }
 
 .button-animation-preclose {
@@ -52,18 +61,25 @@
     width: 100%;
     height: 350px;
     border: 1px solid rgb(230, 230, 230);
+    visibility: hidden;
+    pointer-events: none;
+    transition: none;
 
     @media(max-width: 460px) {
         position: fixed;
-        top: 0;
+        top: var(--chat-node-top-offset, 0);
         left: 0;
         right: 0;
         bottom: 0;
-        height: auto;
+        height: var(--chat-node-height, auto);
         max-width: none !important;
         max-height: none !important;
         border: 0;
         border-top: 1px solid rgb(230, 230, 230);
+    }
+
+    @media(prefers-reduced-motion) {
+        transition: none !important;
     }
 
     + .button {
@@ -72,19 +88,19 @@
 }
 
 .chat-animation-preopen {
-    transition: opacity 0.3s, transform 0.3s;
     opacity: 0;
     transform: scale(.95);
-    display: block !important;
 }
 
-.chat-animation-open {
+.chat-animation-opened {
     opacity: 1;
     transform: scale(1);
+    pointer-events: auto !important;
+    visibility: visible !important;
+    transition: opacity .15s, transform .15s;
 }
 
-.chat-animation-preclose {
-    transition: opacity 0.3s, transform 0.3s;
+.chat-animation-closed {
     opacity: 1;
     transform: scale(1);
 }

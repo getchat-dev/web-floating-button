@@ -450,34 +450,61 @@ const cssTransitionBasedAnimate = function(node, beforeClass, animationClass) {
             resolve();
         }, ANIMATION_FALLBACK_TIMEOUT);
 
-        const onTransitionEnd = function () {
+        const onTransitionEnd = function (e) {
 
             clearTimeout(fallbackTimeout);
 
             node.removeEventListener(transitionEnd, onTransitionEnd);
 
-            node.style.display = displayValue;
-
             removeClassName(node, [
                 beforeClass,
-                animationClass
             ]);
 
             resolve();
         }
 
-        node.addEventListener(
-            transitionEnd,
-            onTransitionEnd
-        );
+        const prefferedAnimation = animationPreference();
+
+        if(prefferedAnimation) {
+            node.addEventListener(
+                transitionEnd,
+                onTransitionEnd
+            );
+        }
 
         addClassName(node, beforeClass);
 
         setTimeout(function () {
             addClassName(node, animationClass)
-        }, 40)
+
+            if(! prefferedAnimation) {
+                onTransitionEnd();
+            }
+        }, 40);
     });
 };
+
+let preferAnimation = null;
+
+function checkReducedMotionPreference() {
+    if (window.matchMedia) {
+        const mediaQueryList = window.matchMedia('(prefers-reduced-motion: reduce)');
+        preferAnimation = !mediaQueryList.matches;
+
+        mediaQueryList.addEventListener('change', (event) => {
+            preferAnimation = !event.matches;
+            console.info('somebody change preferAnimation', preferAnimation);
+        });
+    }
+}
+
+const animationPreference = function() {
+    if(preferAnimation === null) {
+        checkReducedMotionPreference();
+    }
+
+    return preferAnimation;
+}
 
 const asyncEmbedIframe = callbackFuncToAsync(embedIframe, 'onload', 'onerror');
 
@@ -501,4 +528,5 @@ export {
     cssTransitionBasedAnimate,
     iframeRPC,
     asyncEmbedIframe,
+    animationPreference
 }

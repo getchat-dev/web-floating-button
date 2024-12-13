@@ -1,4 +1,5 @@
 import onMessage from '@/onMessage';
+import { isSafari, isTouchDevice } from '@/utils';
 
 export default function (rootElement, src, style, onload, onclose) {
     if(!(rootElement instanceof Element)) {
@@ -22,6 +23,18 @@ export default function (rootElement, src, style, onload, onclose) {
     }, frame);
 
     rootElement.appendChild(frame);
+
+    if(! (isTouchDevice() || isSafari())) {
+        // for some browser chrome, maybe firefox it wiil prevent back gesture
+        // unfortunately, it will not work on safari defenetly, because safari capture back gesture on OS level
+        const defaultOverscrollBehaviorX = window.getComputedStyle(document.body)?.overscrollBehaviorX ?? 'auto';
+        frame.addEventListener('mouseenter', function () {
+            document.body.style.overscrollBehaviorX = 'contain';
+        });
+        frame.addEventListener('mouseleave', function () {
+            document.body.style.overscrollBehaviorX = defaultOverscrollBehaviorX;
+        });
+    }
 
     return frame;
 }

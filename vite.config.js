@@ -29,7 +29,7 @@ export default defineConfig(async({ command, mode }) => {
                 entry: resolve(__dirname, 'src/index.js'),
                 name: 'GetChat',
                 fileName: 'index',
-                formats: ['es'],
+                formats: ['es', 'cjs'],
             },
             assetsInlineLimit: 0,
         },

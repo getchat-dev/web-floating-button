@@ -1,17 +1,17 @@
-(function(){"use strict";try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode(".vt0z5W_button{opacity:1;border:0;border-radius:50%;width:100%;max-width:60px;height:100%;max-height:60px;transition:opacity .6s,transform .6s;display:block;position:fixed;bottom:10px;right:10px;transform:scale(1);box-shadow:0 1px 6px #0000000f,0 2px 32px #00000029}.vt0z5W_button-animation-preclose{opacity:1;transition:opacity .3s,transform .3s;transform:scale(1)}.vt0z5W_button-animation-close{opacity:0;transform:scale(.5)}.vt0z5W_button-animation-preopen{opacity:0;transition:opacity .3s,transform .3s;transform:scale(.5);display:block!important}.vt0z5W_button-animation-open{opacity:1;transform:scale(1)}.vt0z5W_chat{border:1px solid #e6e6e6;width:100%;max-width:370px;height:350px}@media (max-width:460px){.vt0z5W_chat{border:0;border-top:1px solid #e6e6e6;height:auto;position:fixed;top:0;bottom:0;left:0;right:0;max-width:none!important;max-height:none!important}}.vt0z5W_chat+.vt0z5W_button{margin-top:20px}.vt0z5W_chat-animation-preopen{opacity:0;transition:opacity .3s,transform .3s;transform:scale(.95);display:block!important}.vt0z5W_chat-animation-open{opacity:1;transform:scale(1)}.vt0z5W_chat-animation-preclose{opacity:1;transition:opacity .3s,transform .3s;transform:scale(1)}.vt0z5W_chat-animation-close{opacity:0;transform:scale(.95)}")),document.head.appendChild(t)}}catch(o){console.error("vite-plugin-css-injected-by-js",o)}})();
-var kt = Object.defineProperty;
-var ct = (t) => {
+(function(){"use strict";try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode(":root{--is-mobile-screen-mq:(max-width: 460px);--is-touch-device-mq:(pointer: coarse)}@media (max-width:460px){html:has(.vt0z5W_chat-animation-opened){overscroll-behavior:none}}.vt0z5W_button{opacity:1;border:0;border-radius:50%;width:100%;max-width:60px;height:100%;max-height:60px;transition:opacity .3s,transform .3s;display:block;position:fixed;bottom:10px;right:10px;transform:scale(1);box-shadow:0 1px 6px #0000000f,0 2px 32px #00000029}.vt0z5W_button:active{transition:none;transform:scale(.95)}@media (prefers-reduced-motion){.vt0z5W_button{transition:none!important}}.vt0z5W_button-animation-preclose{opacity:1;transition:opacity .3s,transform .3s;transform:scale(1)}.vt0z5W_button-animation-close{opacity:0;transform:scale(.5)}.vt0z5W_button-animation-preopen{opacity:0;transition:opacity .3s,transform .3s;transform:scale(.5);display:block!important}.vt0z5W_button-animation-open{opacity:1;transform:scale(1)}.vt0z5W_chat{border-radius:var(--bdradius,8px);visibility:hidden;pointer-events:none;border:1px solid #e6e6e6;width:100%;max-width:370px;height:80vh;max-height:800px;transition:none;overflow:hidden;box-shadow:0 0 2px #0000001f,0 4px 8px #0000001f}@media (max-width:460px){.vt0z5W_chat{top:var(--chat-node-top-offset,0);height:var(--chat-node-height,auto);box-shadow:none;border:0;border-top:1px solid #e6e6e6;border-radius:8px;position:fixed;bottom:0;left:0;right:0;max-width:none!important;max-height:none!important}}@media (prefers-reduced-motion){.vt0z5W_chat{transition:none!important}}.vt0z5W_chat+.vt0z5W_button{margin-top:20px}.vt0z5W_chat-animation-preopen{opacity:0;transform:scale(.95)}.vt0z5W_chat-animation-opened{opacity:1;transition:opacity .15s,transform .15s;transform:scale(1);pointer-events:auto!important;visibility:visible!important}.vt0z5W_chat-animation-closed{opacity:1;transform:scale(1)}.vt0z5W_chat-animation-close{opacity:0;transform:scale(.95)}")),document.head.appendChild(t)}}catch(o){console.error("vite-plugin-css-injected-by-js",o)}})();
+var jt = Object.defineProperty;
+var dt = (t) => {
   throw TypeError(t);
 };
-var jt = (t, e, n) => e in t ? kt(t, e, { enumerable: !0, configurable: !0, writable: !0, value: n }) : t[e] = n;
-var tt = (t, e, n) => jt(t, typeof e != "symbol" ? e + "" : e, n), ft = (t, e, n) => e.has(t) || ct("Cannot " + n);
-var o = (t, e, n) => (ft(t, e, "read from private field"), n ? n.call(t) : e.get(t)), c = (t, e, n) => e.has(t) ? ct("Cannot add the same private member more than once") : e instanceof WeakSet ? e.add(t) : e.set(t, n), a = (t, e, n, i) => (ft(t, e, "write to private field"), i ? i.call(t, n) : e.set(t, n), n);
-const wt = function() {
+var Tt = (t, e, n) => e in t ? jt(t, e, { enumerable: !0, configurable: !0, writable: !0, value: n }) : t[e] = n;
+var ot = (t, e, n) => Tt(t, typeof e != "symbol" ? e + "" : e, n), ht = (t, e, n) => e.has(t) || dt("Cannot " + n);
+var o = (t, e, n) => (ht(t, e, "read from private field"), n ? n.call(t) : e.get(t)), l = (t, e, n) => e.has(t) ? dt("Cannot add the same private member more than once") : e instanceof WeakSet ? e.add(t) : e.set(t, n), c = (t, e, n, i) => (ht(t, e, "write to private field"), i ? i.call(t, n) : e.set(t, n), n);
+const Ct = function() {
   return "xxxxxxxx-xxxx".replace(/[xy]/g, function(t) {
     var e = Math.random() * 16 | 0, n = t === "x" ? e : e & 3 | 8;
     return n.toString(16);
   });
-}, $ = function(t, e) {
+}, q = function(t, e) {
   if (!(t instanceof Node))
     throw new Error("first argument have to be a DOM Node");
   if (e != null) {
@@ -21,7 +21,7 @@ const wt = function() {
       for (let n = 0, i = e.length; n < i; n++)
         t.className.indexOf(e[n]) < 0 && (t.className = (t.className + " " + e[n]).trim());
   }
-}, nt = function(t, e) {
+}, I = function(t, e) {
   if (!t instanceof Node)
     throw new Error("el arg must be DOM Node");
   if (e != null) {
@@ -32,7 +32,7 @@ const wt = function() {
         for (; t.className.indexOf(e[n]) > -1; )
           t.className = t.className.replace(e[n], "").trim();
   }
-}, xt = function(t, e = !1) {
+}, Vt = function(t, e = !1) {
   if (typeof t != "string") {
     if (e)
       throw new Error("str argument must be a string, " + typeof t + " given");
@@ -45,12 +45,12 @@ const wt = function() {
       throw n;
   }
   return null;
-}, it = function(t) {
+}, at = function(t) {
   if (typeof t != "string")
     return t;
   var e = document.createElement("div");
   return e.innerHTML = t, e.firstChild.nodeValue;
-}, ut = function(t, e = !1) {
+}, pt = function(t, e = !1) {
   switch (typeof t) {
     case "boolean":
       return t;
@@ -60,11 +60,11 @@ const wt = function() {
       return t === 1;
   }
   return e;
-}, vt = function(t) {
+}, Ot = function(t) {
   return parseInt(t, 10);
-}, Lt = function(t, e = null) {
+}, Mt = function(t, e = null) {
   return /^#[0-9A-F]{6}$/i.test(t) || /^rgba?\((\d{1,3}),(\d{1,3}),(\d{1,3})(?:,(\d(?:\.\d+)?))?\)$/i.test(t) ? t : e;
-}, St = function(t, e = null) {
+}, Pt = function(t, e = null) {
   if (typeof t == "string" && t.length === 0)
     try {
       return URL.parse(t), t;
@@ -72,9 +72,9 @@ const wt = function() {
       return e;
     }
   return e;
-}, dt = function(t, e) {
+}, gt = function(t, e) {
   return e == null ? null : t(e);
-}, ht = function(t, e = null) {
+}, mt = function(t, e = null) {
   if (typeof t == "string" && t.length > 0) {
     let n = t.match(/^((\d+)(\.(\d)+)?)(.*)$/);
     return n ? {
@@ -85,32 +85,32 @@ const wt = function() {
     } : t;
   }
   return e;
-}, Tt = function(t, e) {
+}, It = function(t, e) {
   let n = String, i = null;
   if (arguments.length > 2) {
-    const s = { string: String, decimal: vt, number: Number, boolean: ut, bool: ut, color: Lt, url: St };
+    const s = { string: String, decimal: Ot, number: Number, boolean: pt, bool: pt, color: Mt, url: Pt };
     if (!s.hasOwnProperty(arguments[2]))
       throw new Error("3rd arg must be one of the following types: " + Object.keys(s).join(", "));
     n = s[arguments[2]], i = arguments[3];
   } else arguments.length === 3 && (i = arguments[2]);
   if (t instanceof Element) {
     if ("getAttribute" in t)
-      return dt(n, it(t.getAttribute(e))) ?? i;
+      return gt(n, at(t.getAttribute(e))) ?? i;
     {
       let s = Array.prototype.slice.call(t.attributes);
-      for (let r = 0, l = s.length; r < l; r++)
+      for (let r = 0, u = s.length; r < u; r++)
         if (s[r].nodeName === e)
-          return dt(n, it(s[r].nodeValue)) ?? i;
+          return gt(n, at(s[r].nodeValue)) ?? i;
     }
   }
   return null;
-}, ot = function(t) {
+}, At = function(t) {
   return Object.prototype.toString.apply(t) === "[object Object]";
-}, pt = function(t) {
-  return typeof t == "string" && t.length ? t : ot(t) ? Object.keys(t).filter(function(e) {
+}, bt = function(t) {
+  return typeof t == "string" && t.length ? t : At(t) ? Object.keys(t).filter(function(e) {
     return t[e] !== !1;
   }).join(" ") : Array.isArray(t) ? t.join(" ") : null;
-}, bt = function() {
+}, yt = function() {
   var t = {
     transition: "transitionend",
     OTransition: "oTransitionEnd",
@@ -121,38 +121,62 @@ const wt = function() {
     if (e.style[n] !== void 0)
       return t[n];
   return null;
-}(), et = function(t, e, n = null) {
+}(), rt = function(t, e, n = null) {
   let i = {
-    rpcId: wt(),
+    rpcId: Ct(),
     type: e
   };
   if (n) {
-    if (typeof n == "string" && (n = xt(n)), typeof n != "object")
+    if (typeof n == "string" && (n = Vt(n)), typeof n != "object")
       throw new Error("data argument must be an object, " + typeof n + " given");
     i = Object.assign({}, n, i);
   }
   return t instanceof HTMLIFrameElement ? (t.contentWindow.postMessage(JSON.stringify(i), "*"), i.rpcId) : null;
-}, zt = 1e3, X = function(t, e, n) {
+}, Ht = 1e3, et = function(t, e, n) {
   return new Promise((i, s) => {
-    const r = t.style.display === "none" ? "block" : "none";
-    let l = setTimeout(() => {
+    t.style.display;
+    let r = setTimeout(() => {
       i();
-    }, zt);
-    const f = function() {
-      clearTimeout(l), t.removeEventListener(bt, f), t.style.display = r, nt(t, [
-        e,
-        n
+    }, Ht);
+    const u = function(h) {
+      clearTimeout(r), t.removeEventListener(yt, u), I(t, [
+        e
       ]), i();
-    };
-    t.addEventListener(
-      bt,
-      f
-    ), $(t, e), setTimeout(function() {
-      $(t, n);
+    }, a = Bt();
+    a && t.addEventListener(
+      yt,
+      u
+    ), q(t, e), setTimeout(function() {
+      q(t, n), a || u();
     }, 40);
   });
 };
-let C = {};
+function Wt() {
+  const t = navigator.userAgent;
+  return /Safari/.test(t) && !/Chrome/.test(t) && !/Chromium/.test(t);
+}
+getComputedStyle(document.documentElement).getPropertyValue("--is-mobile-screen-mq").trim();
+let st = null;
+const xt = function() {
+  if (st === null) {
+    const t = getComputedStyle(document.documentElement).getPropertyValue("--is-touch-device-mq").trim();
+    st = window.matchMedia(t).matches;
+  }
+  return st;
+};
+let J = null;
+function zt() {
+  if (window.matchMedia) {
+    const t = window.matchMedia("(prefers-reduced-motion: reduce)");
+    J = !t.matches, t.addEventListener("change", (e) => {
+      J = !e.matches, console.info("somebody change preferAnimation", J);
+    });
+  }
+}
+const Bt = function() {
+  return J === null && zt(), J;
+};
+let O = {};
 window.addEventListener("message", function(t) {
   var e = {};
   if (t.data)
@@ -164,7 +188,7 @@ window.addEventListener("message", function(t) {
       }
     else
       e = t.data;
-  e.type && Array.isArray(C == null ? void 0 : C[e.type]) && C[e.type].length && (C[e.type] = C[e.type].filter((n) => {
+  e.type && Array.isArray(O == null ? void 0 : O[e.type]) && O[e.type].length && (O[e.type] = O[e.type].filter((n) => {
     try {
       return n(t, e) !== -1;
     } catch (i) {
@@ -172,10 +196,10 @@ window.addEventListener("message", function(t) {
     }
   }));
 });
-const yt = function(t, e) {
-  typeof t == "string" && typeof e == "function" && (C.hasOwnProperty(t) || (C[t] = []), C[t].push(e));
+const wt = function(t, e) {
+  typeof t == "string" && typeof e == "function" && (O.hasOwnProperty(t) || (O[t] = []), O[t].push(e));
 };
-function rt(...t) {
+function X(...t) {
   let e = {};
   if (t.length === 1)
     typeof t[0] == "object" && Object.prototype.toString.call(t[0]) === "[object Object]" && (e = t[0]);
@@ -187,10 +211,10 @@ function rt(...t) {
       for (let s = 0, r = n.length; s < r; s++)
         if (typeof n[s] == "function") {
           if (i) {
-            const l = n[s];
-            n[s] = function(f, d) {
-              if (i.contentWindow === f.source.window)
-                return l(f, d);
+            const u = n[s];
+            n[s] = function(a, h) {
+              if (i.contentWindow === a.source.window)
+                return u(a, h);
             };
           }
           e[t[0]].push(n[s]);
@@ -200,153 +224,218 @@ function rt(...t) {
   if (Object.keys(e).length) {
     for (let n in e)
       if (typeof e[n] == "function")
-        yt(n, e[n]);
+        wt(n, e[n]);
       else if (typeof e[n] == "object" && Object.prototype.toString.call(e[n]) === "[object Array]")
         for (let i in e[n])
-          yt(n, e[n][i]);
+          wt(n, e[n][i]);
   }
 }
-function It(t, e, n, i, s) {
+const it = /* @__PURE__ */ new Set(), T = /* @__PURE__ */ new Map();
+let St = !1;
+initVirtualkeyboardAPI = function() {
+  navigator.virtualKeyboard.overlaysContent = !0, lastVKHeight = null, navigator.virtualKeyboard.addEventListener("geometrychange", (t) => {
+    const { x: e, y: n, width: i, height: s } = t.target.boundingRect;
+    if (lastVKHeight !== s) {
+      for (const r of it) {
+        const u = Object.assign({}, lastViewport);
+        setTimeout(() => {
+          handleNode(r, u, newViewport);
+        }, 0);
+      }
+      lastVKHeight = s;
+    }
+  });
+};
+const Ft = function() {
+  if (!xt())
+    return;
+  if (!window.visualViewport) {
+    console.error("window.visualViewport is not supported");
+    return;
+  }
+  let t = { height: window.visualViewport.height, width: window.visualViewport.width };
+  const e = function(n, i, s, r) {
+    const u = Date.now(), a = i.querySelector("iframe");
+    if (!T.has(a == null ? void 0 : a.contentWindow))
+      return;
+    let h = T.get(a == null ? void 0 : a.contentWindow).action === "unfocus" ? 1e3 : 300;
+    if (u - T.get(a == null ? void 0 : a.contentWindow).timestamp > h) {
+      n.type === "scroll" && T.get(a == null ? void 0 : a.contentWindow).action === "focus" && i.style.setProperty("--chat-node-top-offset", `${window.visualViewport.pageTop}px`);
+      return;
+    }
+    if (T.get(a == null ? void 0 : a.contentWindow).action === "unfocus") {
+      i.style.removeProperty("--chat-node-top-offset"), i.style.removeProperty("--chat-node-height");
+      return;
+    }
+    const d = i.getBoundingClientRect(), y = r.height - s.height;
+    d.top === y && (i.style.setProperty("--chat-node-top-offset", `${(parseInt(i.style.top) || 0) + d.top * -1}px`), i.style.setProperty("--chat-node-height", `${r.height}px`));
+  };
+  window.visualViewport.addEventListener("resize", (n) => {
+    if (t.height === window.visualViewport.height)
+      return;
+    const i = { height: window.visualViewport.height, width: window.visualViewport.width };
+    for (const s of it) {
+      const r = Object.assign({}, t);
+      e(n, s, r, i);
+    }
+    t = i;
+  }), X("getchat.input.focused", function(n, i) {
+    T.set(n.source.window, {
+      action: "focus",
+      timestamp: Date.now()
+    });
+  }), X("getchat.input.unfocused", function(n, i) {
+    T.set(n.source.window, {
+      action: "unfocus",
+      timestamp: Date.now()
+    });
+  }), St = !0;
+}, _t = function(t) {
+  t instanceof Element && (St || Ft(), it.add(t));
+}, Rt = function(t) {
+  t instanceof Element && it.delete(t);
+};
+function Dt(t, e, n, i, s) {
+  var u;
   t instanceof Element || (t = document.body);
   const r = document.createElement("iframe");
-  r.src = e, r.setAttribute("frameborder", "0"), r.setAttribute("seamless", "seamless"), r.style.width = "100%", r.style.height = "100%";
-  let l = function() {
-  }, f = window.getComputedStyle(t);
-  if (f.display === "none") {
-    const d = f.visibility;
-    l = function() {
-      t.style.display = "none", t.style.visibility = d;
-    }, r.onerror = l, t.style.visibility = "hidden", t.style.display = "block";
+  if (r.src = e, r.setAttribute("frameborder", "0"), r.setAttribute("seamless", "seamless"), r.style.width = "100%", r.style.height = "100%", X("getchat.loaded", function() {
+    return typeof i == "function" && i(r), -1;
+  }, r), t.appendChild(r), !(xt() || Wt())) {
+    const a = ((u = window.getComputedStyle(document.body)) == null ? void 0 : u.overscrollBehaviorX) ?? "auto";
+    r.addEventListener("mouseenter", function() {
+      document.body.style.overscrollBehaviorX = "contain";
+    }), r.addEventListener("mouseleave", function() {
+      document.body.style.overscrollBehaviorX = a;
+    });
   }
-  return rt("getchat.loaded", function() {
-    return l(), typeof i == "function" && i(r), -1;
-  }, r), t.appendChild(r), r;
+  return r;
 }
-let z = [];
-const st = function(t) {
+let V = [];
+const ct = function(t) {
   if (t.key === "Escape") {
-    const e = z.pop();
-    z.length === 0 && document.removeEventListener("keydown", st), typeof e == "function" && e();
+    const e = V.pop();
+    V.length === 0 && document.removeEventListener("keydown", ct), typeof e == "function" && e();
   }
-}, gt = {
+}, vt = {
   bind: function(t) {
-    typeof t == "function" && z.push(t), z.length === 1 && document.addEventListener("keydown", st);
+    typeof t == "function" && V.push(t), V.length === 1 && document.addEventListener("keydown", ct);
   },
   unbind: function(t) {
-    typeof t == "function" && (z = z.filter((e) => e !== t)), z.length === 0 && document.removeEventListener("keydown", st);
+    typeof t == "function" && (V = V.filter((e) => e !== t)), V.length === 0 && document.removeEventListener("keydown", ct);
   }
-}, Ht = "vt0z5W_button", Mt = "vt0z5W_chat", m = {
-  button: Ht,
+}, Gt = "vt0z5W_button", qt = "vt0z5W_chat", p = {
+  button: Gt,
   "button-animation-close": "vt0z5W_button-animation-close",
   "button-animation-open": "vt0z5W_button-animation-open",
   "button-animation-preclose": "vt0z5W_button-animation-preclose",
   "button-animation-preopen": "vt0z5W_button-animation-preopen",
-  chat: Mt,
+  chat: qt,
   "chat-animation-close": "vt0z5W_chat-animation-close",
-  "chat-animation-open": "vt0z5W_chat-animation-open",
-  "chat-animation-preclose": "vt0z5W_chat-animation-preclose",
+  "chat-animation-closed": "vt0z5W_chat-animation-closed",
+  "chat-animation-opened": "vt0z5W_chat-animation-opened",
   "chat-animation-preopen": "vt0z5W_chat-animation-preopen"
 };
-var u, I, p, q, M, y, k, O, P, F, W, B, _, G, j;
-class Ct {
-  constructor({ id: e, url: n, button: i, closeOnEscape: s = !0, autoload: r, autoopen: l = !1, autoopenDelay: f, onBeforeEmbedChat: d, onChatLoaded: b, onBeforeOpen: E, onAfterOpen: Y, onBeforeClose: U, onAfterClose: x }) {
-    c(this, u);
-    c(this, I);
-    c(this, p);
-    c(this, q);
-    c(this, M, !0);
-    c(this, y, -1);
-    c(this, k, !1);
-    c(this, O, !1);
-    c(this, P);
-    c(this, F);
-    c(this, W);
-    c(this, B);
-    c(this, _);
-    c(this, G);
-    c(this, j);
-    tt(this, "open", () => new Promise(async (e, n) => {
-      if (o(this, y) < 1 && await this.load(), o(this, k) && !o(this, O)) {
+var f, v, g, Y, H, b, S, A, W, z, B, F, _, R, k;
+class kt {
+  constructor({ id: e, url: n, button: i, closeOnEscape: s = !0, autoload: r, autoopen: u = !1, autoopenDelay: a, onBeforeEmbedChat: h, onChatLoaded: d, onBeforeOpen: y, onAfterOpen: Q, onBeforeClose: K, onAfterClose: lt }) {
+    l(this, f);
+    l(this, v);
+    l(this, g);
+    l(this, Y);
+    l(this, H, !0);
+    l(this, b, -1);
+    l(this, S, !1);
+    l(this, A, !1);
+    l(this, W);
+    l(this, z);
+    l(this, B);
+    l(this, F);
+    l(this, _);
+    l(this, R);
+    l(this, k);
+    ot(this, "open", () => new Promise(async (e, n) => {
+      if (o(this, b) < 1 && await this.load(), o(this, S) && !o(this, A)) {
         e();
         return;
       }
       try {
-        a(this, O, !0), typeof o(this, W) == "function" && await o(this, W).call(this), o(this, u) && await X(
-          o(this, u),
-          m["button-animation-preclose"],
-          m["button-animation-close"]
-        ), await X(
-          o(this, I),
-          m["chat-animation-preopen"],
-          m["chat-animation-open"]
-        ), typeof o(this, B) == "function" && await o(this, B).call(this), et(o(this, p), "getchat.messenger.repaint"), a(this, O, !1), a(this, k, !0), et(o(this, p), "getchat.chat.input.focus"), o(this, M) && gt.bind(this.close);
+        c(this, A, !0), typeof o(this, B) == "function" && await o(this, B).call(this), o(this, f) && await et(
+          o(this, f),
+          p["button-animation-preclose"],
+          p["button-animation-close"]
+        ), await et(
+          o(this, v),
+          p["chat-animation-preopen"],
+          p["chat-animation-opened"]
+        ), typeof o(this, F) == "function" && await o(this, F).call(this), rt(o(this, g), "getchat.messenger.repaint"), _t(o(this, v)), c(this, A, !1), c(this, S, !0), rt(o(this, g), "getchat.chat.input.focus"), o(this, H) && vt.bind(this.close);
       } catch (i) {
         n(i);
       }
       e();
     }));
-    tt(this, "close", () => new Promise(async (e, n) => {
-      if (!o(this, k) && !o(this, O)) {
+    ot(this, "close", () => new Promise(async (e, n) => {
+      if (!o(this, S) && !o(this, A)) {
         e();
         return;
       }
-      o(this, M) && gt.unbind(this.close);
+      o(this, H) && vt.unbind(this.close);
       try {
-        a(this, O, !0), typeof o(this, _) == "function" && await o(this, _).call(this), await X(
-          o(this, I),
-          m["chat-animation-preclose"],
-          m["chat-animation-close"]
-        ), o(this, u) && await X(
-          o(this, u),
-          m["button-animation-preopen"],
-          m["button-animation-open"]
-        ), a(this, O, !0), a(this, k, !1), typeof o(this, G) == "function" && await o(this, G).call(this), e();
+        c(this, A, !0), Rt(o(this, v)), typeof o(this, _) == "function" && await o(this, _).call(this), await et(
+          o(this, v),
+          p["chat-animation-opened"],
+          p["chat-animation-close"]
+        ), I(o(this, v), p["chat-animation-close"]), I(o(this, f), p["button-animation-close"]), o(this, f) && await et(
+          o(this, f),
+          p["button-animation-preopen"],
+          p["button-animation-open"]
+        ), I(o(this, f), p["button-animation-open"]), c(this, A, !0), c(this, S, !1), typeof o(this, R) == "function" && await o(this, R).call(this), e();
       } catch (i) {
         n(i);
       }
     }));
-    if (a(this, q, n), a(this, M, s), i instanceof Element && a(this, u, i), typeof d != "function")
-      throw new Error("onBeforeEmbedChat parameter must be a function, " + typeof d + " given");
-    a(this, P, d);
-    let h;
-    l && (l !== "once" || !window.localStorage.getItem("getchat_opened")) && (h = isNaN(f) ? this.open : () => {
-      setTimeout(this.open, f * 1e3);
-    }), a(this, F, () => {
-      a(this, y, 1), h && h(), typeof b == "function" && b(), a(this, P, null), a(this, F, null);
-    }), r && this.load(!1), a(this, W, E), a(this, B, Y), a(this, _, U), a(this, G, x), o(this, u) && o(this, u).addEventListener("click", () => {
+    if (c(this, Y, n), c(this, H, s), i instanceof Element && c(this, f, i), typeof h != "function")
+      throw new Error("onBeforeEmbedChat parameter must be a function, " + typeof h + " given");
+    c(this, W, h);
+    let m;
+    u && (u !== "once" || !window.localStorage.getItem("getchat_opened")) && (m = isNaN(a) ? this.open : () => {
+      setTimeout(this.open, a * 1e3);
+    }), c(this, z, () => {
+      c(this, b, 1), m && m(), typeof d == "function" && d(), c(this, W, null), c(this, z, null);
+    }), r && this.load(!1), c(this, B, y), c(this, F, Q), c(this, _, K), c(this, R, lt), o(this, f) && o(this, f).addEventListener("click", () => {
       this.toggle();
     });
     {
-      let Z, K;
-      const g = new Promise((w, A) => {
-        Z = w, K = A;
+      let U, $;
+      const w = new Promise((E, x) => {
+        U = E, $ = x;
       });
-      a(this, j, { promise: g, resolve: Z, reject: K }), o(this, u) && g.then(async () => {
-        var A;
-        const w = await this.rpc("getchat.messenger.getUnreads");
-        o(this, u).setBadge(((A = w == null ? void 0 : w.total) == null ? void 0 : A.messages) ?? 0);
+      c(this, k, { promise: w, resolve: U, reject: $ }), o(this, f) && w.then(async () => {
+        var x;
+        const E = await this.rpc("getchat.messenger.getUnreads");
+        o(this, f).setBadge(((x = E == null ? void 0 : E.total) == null ? void 0 : x.messages) ?? 0);
       });
     }
   }
   whenReady() {
     var e;
-    return (e = o(this, j)) != null && e.promise ? o(this, j).promise : o(this, y) === 1 ? Promise.resolve() : new Promise();
+    return (e = o(this, k)) != null && e.promise ? o(this, k).promise : o(this, b) === 1 ? Promise.resolve() : new Promise();
   }
   load(e = !0) {
     return new Promise((n, i) => {
       var s;
       try {
-        if (o(this, y) > -1) {
+        if (o(this, b) > -1) {
           n();
           return;
         }
-        a(this, y, 0);
-        const r = o(this, P).call(this);
+        c(this, b, 0);
+        const r = o(this, W).call(this);
         if (!(r instanceof Element))
           throw new Error("onBeforeEmbedChat must return an Element");
-        a(this, I, r), e && ((s = o(this, u)) == null || s.setState("loading")), a(this, p, It(r, o(this, q), {}, () => {
-          var l, f;
-          o(this, F).call(this), (l = o(this, u)) == null || l.setState("loaded"), a(this, y, 1), n(), (f = o(this, j)) == null || f.resolve(), a(this, j, null);
+        c(this, v, r), e && ((s = o(this, f)) == null || s.setState("loading")), c(this, g, Dt(r, o(this, Y), {}, () => {
+          var u, a;
+          o(this, z).call(this), (u = o(this, f)) == null || u.setState("loaded"), c(this, b, 1), n(), (a = o(this, k)) == null || a.resolve(), c(this, k, null);
         }));
       } catch (r) {
         i(r);
@@ -355,96 +444,96 @@ class Ct {
   }
   toggle() {
     return new Promise(async (e, n) => {
-      if (o(this, y) === 0) {
+      if (o(this, b) === 0) {
         e();
         return;
       }
-      o(this, k) ? await this.close() : await this.open(), e();
+      o(this, S) ? await this.close() : await this.open(), e();
     });
   }
   addEventListener(e, n) {
     this.whenReady().then(() => {
-      o(this, p) && rt(e, n, o(this, p));
+      o(this, g) && X(e, n, o(this, g));
     });
   }
   getButton() {
-    return o(this, u);
+    return o(this, f);
   }
   getChatNode() {
-    return o(this, I);
+    return o(this, v);
   }
   getChatIframeNode() {
-    return o(this, p);
+    return o(this, g);
   }
   rpc(e, n, i = 5e3) {
     return new Promise((s, r) => {
-      if (o(this, y) < 1) {
+      if (o(this, b) < 1) {
         r("Chat is not loaded");
         return;
       }
-      if (!o(this, p)) {
+      if (!o(this, g)) {
         r("Chat iframe is not loaded");
         return;
       }
-      let l;
-      const f = (b, E) => (clearTimeout(l), s(E == null ? void 0 : E.data), -1), d = et(o(this, p), e, n);
-      d && (rt("response." + d, f, o(this, p)), i > 0 && (l = setTimeout(() => {
+      let u;
+      const a = (d, y) => (clearTimeout(u), s(y == null ? void 0 : y.data), -1), h = rt(o(this, g), e, n);
+      h && (X("response." + h, a, o(this, g)), i > 0 && (u = setTimeout(() => {
         r("Timeout");
       }, i)));
     });
   }
 }
-u = new WeakMap(), I = new WeakMap(), p = new WeakMap(), q = new WeakMap(), M = new WeakMap(), y = new WeakMap(), k = new WeakMap(), O = new WeakMap(), P = new WeakMap(), F = new WeakMap(), W = new WeakMap(), B = new WeakMap(), _ = new WeakMap(), G = new WeakMap(), j = new WeakMap();
-const mt = function(t, e, n) {
-  let i = Tt(t, e, n);
+f = new WeakMap(), v = new WeakMap(), g = new WeakMap(), Y = new WeakMap(), H = new WeakMap(), b = new WeakMap(), S = new WeakMap(), A = new WeakMap(), W = new WeakMap(), z = new WeakMap(), B = new WeakMap(), F = new WeakMap(), _ = new WeakMap(), R = new WeakMap(), k = new WeakMap();
+const Et = function(t, e, n) {
+  let i = It(t, e, n);
   i && t.style.setProperty(`--${e.replace("data-", "")}`, i);
-}, at = ["bgcolor", "color", "bdradius", "bdwidth", "bdcolor", "badgebg", "badgecolor"];
-var R, D, V;
-class N extends HTMLElement {
+}, ut = ["bgcolor", "color", "bdradius", "bdwidth", "bdcolor", "badgebg", "badgecolor"];
+var D, N, G;
+class nt extends HTMLElement {
   constructor() {
     super();
-    c(this, R);
-    c(this, D, !1);
-    c(this, V);
+    l(this, D);
+    l(this, N, !1);
+    l(this, G);
     this.attachShadow({ mode: "open" });
   }
   connectedCallback() {
-    this.render(), at.forEach((n) => {
-      this.hasAttribute("data-" + n) && mt(this, "data-" + n, "string");
-    }), a(this, V, new MutationObserver((n) => {
+    this.render(), ut.forEach((n) => {
+      this.hasAttribute("data-" + n) && Et(this, "data-" + n, "string");
+    }), c(this, G, new MutationObserver((n) => {
       for (let i of n)
         if (i.type === "attributes") {
           let s = i.attributeName;
-          s.startsWith("data-") && (s = s.replace("data-", "")), at.includes(s.replace("data-", "")) && mt(this, i.attributeName, "string");
+          s.startsWith("data-") && (s = s.replace("data-", "")), ut.includes(s.replace("data-", "")) && Et(this, i.attributeName, "string");
         }
-    })), o(this, V).observe(this, { attributes: !0 });
+    })), o(this, G).observe(this, { attributes: !0 });
   }
   disconnectedCallback() {
-    o(this, V).disconnect();
+    o(this, G).disconnect();
   }
   setChatInstance(n) {
-    !o(this, R) && n instanceof Ct && a(this, R, n);
+    !o(this, D) && n instanceof kt && c(this, D, n);
   }
   getChatInstance() {
-    return o(this, R);
+    return o(this, D);
   }
   setState(n) {
-    n = n.toLowerCase(), n === "loading" ? $(this, "loading") : (nt(this, "loading"), n === "loaded" && this.shadowRoot.querySelector(".loader").remove());
+    n = n.toLowerCase(), n === "loading" ? q(this, "loading") : (I(this, "loading"), n === "loaded" && this.shadowRoot.querySelector(".loader").remove());
   }
   setBadge(n) {
-    n = vt(n);
+    n = Ot(n);
     const i = this.shadowRoot.querySelector(".unreads");
-    i && (n > 0 ? (i.textContent = n, $(i, "unreads--visible")) : nt(i, "unreads--visible"));
+    i && (n > 0 ? (i.textContent = n, q(i, "unreads--visible")) : I(i, "unreads--visible"));
   }
   setStyles(n) {
     const i = this.shadowRoot.getElementById("dynamic-styles");
     let s = "";
-    for (const [r, l] of Object.entries(n))
-      s += `${r} { ${l} } `;
+    for (const [r, u] of Object.entries(n))
+      s += `${r} { ${u} } `;
     i.textContent = s;
   }
   render() {
-    o(this, D) || (this.shadowRoot.innerHTML = `
+    o(this, N) || (this.shadowRoot.innerHTML = `
             <style id="dynamic-styles"></style>
             <button class="button">
                 <div class="button-icon">
@@ -556,89 +645,86 @@ class N extends HTMLElement {
                     transform: translate(-50%, -50%) rotate(360deg);
                 }
             `
-    }), a(this, D, !0));
+    }), c(this, N, !0));
   }
 }
-R = new WeakMap(), D = new WeakMap(), V = new WeakMap();
-N.supportedAttributes = at;
-customElements.define("getchat-button", N);
-async function Pt({
+D = new WeakMap(), N = new WeakMap(), G = new WeakMap();
+nt.supportedAttributes = ut;
+customElements.define("getchat-button", nt);
+async function Kt({
   uri: t,
   className: e,
   showUnread: n = !1,
   autoload: i = !1,
   autoopen: s = !1,
   autoopenDelay: r = 5,
-  closeOnEscape: l,
-  color: f,
-  mobileModeMaxWidth: d = 460,
-  insertButtonTo: b,
-  buttonStyle: E,
-  chatClassName: Y,
-  chatParent: U,
-  chatStyle: x,
-  chatNode: h,
-  ...Z
+  closeOnEscape: u,
+  color: a,
+  mobileModeMaxWidth: h = 460,
+  insertButtonTo: d,
+  buttonStyle: y,
+  chatClassName: Q,
+  chatParent: K,
+  chatStyle: lt,
+  chatNode: m,
+  ...U
 }) {
-  var lt;
-  const K = "GetChat".toLowerCase() + wt();
-  if (typeof b == "function" && (b = b()), b instanceof Element) {
-    if (!document.body.contains(b))
+  var ft;
+  const $ = "GetChat".toLowerCase() + Ct();
+  if (typeof d == "function" && (d = d()), d instanceof Element) {
+    if (!document.body.contains(d))
       throw new Error("insertButtonTo is Element but not yet in DOM, please insert it first");
   } else
-    b = document.body;
-  const g = document.createElement("getchat-button");
-  if (g.id = K, e || (e = m.button), e = pt(e), e && $(g, e), ot(E) && Object.assign(g.style, E), (lt = N.supportedAttributes) != null && lt.length)
-    for (let L of N.supportedAttributes)
-      Z[L] && g.setAttribute("data-" + L, Z[L]);
-  b.appendChild(g);
-  let w, A, Q = !1;
-  const J = new Ct({
-    url: it(t),
-    button: g,
+    d = document.body;
+  const w = document.createElement("getchat-button");
+  if (w.id = $, e || (e = p.button), e = bt(e), e && q(w, e), At(y) && Object.assign(w.style, y), (ft = nt.supportedAttributes) != null && ft.length)
+    for (let L of nt.supportedAttributes)
+      U[L] && w.setAttribute("data-" + L, U[L]);
+  d.appendChild(w);
+  let E, x, tt = !1;
+  const Z = new kt({
+    url: at(t),
+    button: w,
     autoload: i,
     autoopen: s,
     autoopenDelay: r,
-    closeOnEscape: l,
+    closeOnEscape: u,
     onBeforeEmbedChat: function() {
-      let S = !0;
-      return h instanceof Element || (h = document.createElement("div"), S = !1), h.className = m.chat, ot(x) ? x = Object.assign({}, x, { display: "none" }) : x = { display: "none" }, Object.assign(h.style, x), Y && $(h, pt(Y)), (!S || !document.body.contains(h)) && (U instanceof Element || (U = document.body), U.appendChild(h)), h;
+      let M = !0;
+      return m instanceof Element || (m = document.createElement("div"), M = !1), m.className = p.chat, Q && q(m, bt(Q)), (!M || !document.body.contains(m)) && (K instanceof Element || (K = document.body), K.appendChild(m)), m;
     },
     onChatLoaded: function() {
       window.localStorage.setItem("getchat_opened", "1");
-      const L = window.innerHeight, S = J.getChatNode();
-      if (S) {
-        let { display: Ot, visibility: Et, position: At, top: T, right: Ft, bottom: v, left: Wt } = getComputedStyle(S);
-        const H = {
-          display: Ot,
-          visibility: Et
-        };
-        Object.assign(S.style, { display: "block", visibility: "hidden" }), requestAnimationFrame(() => {
-          At === "fixed" ? (v = ht(v, "auto"), T = ht(T, "auto"), v !== "auto" && (v != null && v.value) ? T === "auto" && (H.top = v.value + v.unit, H.height = "auto") : T !== "auto" && T.value && v === "auto" && (H.bottom = T.value + T.unit, H.height = "auto")) : H.height = `${Math.min(L - 20, 500)}px`, Object.assign(S.style, H);
+      const L = window.innerHeight, M = Z.getChatNode();
+      if (M) {
+        let { position: Lt, top: j, bottom: C } = getComputedStyle(M);
+        const P = {};
+        requestAnimationFrame(() => {
+          Lt === "fixed" ? (C = mt(C, "auto"), j = mt(j, "auto"), C !== "auto" && (C != null && C.value) ? j === "auto" && (P.top = C.value + C.unit, P.height = "auto") : j !== "auto" && j.value && C === "auto" && (P.bottom = j.value + j.unit, P.height = "auto")) : P.height = `${Math.min(L - 20, 500)}px`, Object.assign(M.style, P);
         });
       }
     },
     onBeforeOpen: function() {
-      console.info("onBeforeOpen", window.innerWidth, d), window.innerWidth <= d && (console.info("onBeforeOpen1", window.clientWidth, d), w = window.scrollY || window.pageYOffset, A = getComputedStyle(document.body).position, Q = !0);
+      window.innerWidth <= h && (E = window.scrollY || window.pageYOffset, x = getComputedStyle(document.body).position, tt = !0);
     },
     onAfterOpen: function() {
-      Q && (window.scrollTo({ top: 0, left: 0, behavior: "instant" }), document.body.style.position = "fixed");
+      tt && (window.scrollTo({ top: 0, left: 0, behavior: "instant" }), document.body.style.position = "fixed");
     },
     onBeforeClose: function() {
-      Q && (A && (document.body.style.position = A), w && window.scrollTo({ top: w, left: 0, behavior: "instant" })), Q = !1;
+      tt && (x && (document.body.style.position = x), E && window.scrollTo({ top: E, left: 0, behavior: "instant" })), tt = !1;
     }
   });
-  return g.setChatInstance(J), J.addEventListener("getchat.close", function(L) {
-    J.close();
-  }), J;
+  return w.setChatInstance(Z), Z.addEventListener("getchat.close", function(L) {
+    Z.close();
+  }), Z;
 }
 (function(t) {
   var n;
   if ((n = t.GetChat) != null && n.isLoaded)
     return;
   t.GetChat = {
-    version: "0.1.3",
-    createButton: Pt
+    version: "0.1.4",
+    createButton: Kt
   };
   const e = "GetChat".toLowerCase() + "onloaded";
   typeof t[e] == "function" && t[e](t.GetChat), t.GetChat.isLoaded = !0, Object.freeze && Object.freeze(t.GetChat);

@@ -14,7 +14,12 @@ export default defineConfig(async({ command, mode }) => {
         appType: 'custom',
         root: './src',
         css: {
-            transformer: 'lightningcss'
+            transformer: 'lightningcss',
+            lightningcss: {
+                drafts: {
+                    customMedia: true,
+                }
+            },
         },
         build: {
             cssMinify: 'lightningcss',

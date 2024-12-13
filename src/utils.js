@@ -484,6 +484,32 @@ const cssTransitionBasedAnimate = function(node, beforeClass, animationClass) {
     });
 };
 
+function isSafari() {
+    const ua = navigator.userAgent;
+    const isSafariBrowser =
+        /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua);
+    return isSafariBrowser;
+}
+
+
+const isMobileScreenMq = getComputedStyle(document.documentElement).getPropertyValue("--is-mobile-screen-mq").trim();
+function isMobileScreen() {
+    return window.matchMedia(isMobileScreenMq).matches;
+}
+
+let _touchDevice = null;
+const isTouchDevice = function() {
+    if(_touchDevice === null) {
+        const mq = getComputedStyle(document.documentElement)
+            .getPropertyValue("--is-touch-device-mq")
+            .trim();
+
+        _touchDevice = window.matchMedia(mq).matches;
+    }
+
+    return _touchDevice;
+}
+
 let preferAnimation = null;
 
 function checkReducedMotionPreference() {
@@ -520,6 +546,9 @@ export {
     addStyleToDocument,
     scalarToBoolean,
     toDecimal,
+    isSafari,
+    isMobileScreen,
+    isTouchDevice,
     transitionEnd,
     compartmentalizeCssValue,
     sanitizeOnMessageEvent,

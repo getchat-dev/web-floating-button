@@ -1,4 +1,5 @@
 import { cssTransitionBasedAnimate, removeClassName, iframeRPC } from '@/utils.js'
+import { startObservViewport, finishObservViewport } from '@/viewportObserver';
 import embedChat from '@/embedChat';
 import onMessage from '@/onMessage';
 import escapeHandler from '@/escapeHandler';
@@ -208,6 +209,8 @@ export default class Chat {
 
                 iframeRPC(this.#chatIframe, 'getchat.messenger.repaint');
 
+                startObservViewport(this.#chatNode);
+
                 this.#animationState = false;
                 this.#isChatOpened = true;
 
@@ -239,6 +242,8 @@ export default class Chat {
 
             try {
                 this.#animationState = true;
+
+                finishObservViewport(this.#chatNode);
 
                 if (typeof (this.#onBeforeClose) === 'function') {
                     await this.#onBeforeClose();
